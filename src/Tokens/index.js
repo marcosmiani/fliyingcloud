@@ -15,7 +15,7 @@ const layout = {
   wrapperCol: { span: 16 }
 }
 
-function Header () {
+function Tokens () {
   const dispatch = useDispatch()
 
   const accuWeatherTokenState = useSelector(state => state.tokens.accuWeatherToken)
@@ -52,6 +52,7 @@ function Header () {
           name='basic'
           onFinish={onFinish}
           onFinishFailed={onFinishFailed}
+          size='large'
         >
           <Form.Item
             label='AccuWeather Token'
@@ -92,4 +93,4 @@ function Header () {
   )
 }
 
-export default Header
+export default Tokens
