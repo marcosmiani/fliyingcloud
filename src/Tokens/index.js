@@ -22,7 +22,6 @@ function Header() {
   const tequilaKiwiTokenState = useSelector(state => state.tokens.tequilaKiwiToken);
 
   const onFinish = values => {
-    console.log('Success:', values);
     dispatch(accuWeatherToken.actions.set(values.accuWeatherToken));
     dispatch(tequilaKiwiToken.actions.set(values.tequilaKiwiToken));
     dispatch(modal.actions.close());
