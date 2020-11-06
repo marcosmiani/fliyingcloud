@@ -1,8 +1,16 @@
+import React from 'react';
 import logo from './logo.svg';
 import 'antd/dist/antd.css';
+import { Provider } from 'react-redux'
+import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { Row, Col } from 'antd';
-import { Button } from 'antd';
 import styled, { keyframes } from 'styled-components';
+import TokenModal from './Tokens';
+import tokens from './Tokens/state';
+
+export const store = configureStore({
+  reducer: combineReducers({ tokens })
+})
 
 const AppWrapper = styled.div`
   text-align: center;
@@ -41,24 +49,23 @@ const AppLogo = styled.img`
 
 function App() {
   return (
-    <AppWrapper>
-      <Row justify="center">
-        <Col span={16}>
-          <AppHeader>
-            Welcome to the fliying cloud
-          </AppHeader>
-        </Col>
-      </Row>
-      <Row>
-        <Col span={24}>
-          <AppLogo src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <Button type="primary">Button</Button>
-        </Col>
-      </Row>
-    </AppWrapper>
+    <Provider store={store}>
+      <AppWrapper>
+        <Row justify="center">
+          <Col span={16}>
+            <AppHeader>
+              Welcome to the fliying cloud
+            </AppHeader>
+          </Col>
+        </Row>
+        <Row justify="center">
+          <Col span={16}>
+            <AppLogo src={logo} className="App-logo" alt="logo" />
+          </Col>
+        </Row>
+        <TokenModal />
+      </AppWrapper>
+    </Provider>
   );
 }
 
