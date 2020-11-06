@@ -1,4 +1,5 @@
 import { Form, Input, Button, Affix, DatePicker, InputNumber } from 'antd'
+import moment from 'moment'
 const { RangePicker } = DatePicker
 // import { KeyOutlined } from '@ant-design/icons'
 // import { useDispatch, useSelector } from 'react-redux'
@@ -8,7 +9,7 @@ const { RangePicker } = DatePicker
 const layout = {
   labelCol: {
     xs: { span: 24 },
-    sm: { span: 8 }
+    sm: { span: 6 }
   },
   wrapperCol: {
     xs: { span: 24 },
@@ -16,9 +17,11 @@ const layout = {
   }
 }
 
-const tailFormItemLayout = {
-  labelCol: { span: 8 },
-  wrapperCol: { span: 16 }
+const tailLayout = {
+  wrapperCol: {
+    xs: { offset: 0, span: 16 },
+    sm: { offset: 6, span: 16 }
+  }
 }
 
 function Searchbox () {
@@ -64,7 +67,7 @@ function Searchbox () {
         name='dates'
         rules={[{ required: true, message: 'Please input your dates!' }]}
       >
-        <RangePicker />
+        <RangePicker disabledDate={date => date.isBefore(moment())} />
       </Form.Item>
       <Form.Item label='Passengers'>
         <Input.Group compact>
@@ -86,7 +89,7 @@ function Searchbox () {
           </Form.Item>
         </Input.Group>
       </Form.Item>
-      <Form.Item {...tailFormItemLayout}>
+      <Form.Item {...tailLayout}>
         <Button type='primary' htmlType='submit'>
           Search
         </Button>
