@@ -28,5 +28,5 @@ export const tequilaKiwiToken = createSlice({
 export default combineReducers({
   modal: modal.reducer,
   accuWeatherToken: accuWeatherToken.reducer,
-  tequilaKiwiToken: tequilaKiwiToken.reducer,
-});
+  tequilaKiwiToken: tequilaKiwiToken.reducer
+})

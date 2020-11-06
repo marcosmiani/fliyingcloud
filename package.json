@@ -20,6 +20,7 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "lint": "standard src/*",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -44,5 +45,8 @@
     "transformIgnorePatterns": [
       "/node_modules/(?!antd|@ant-design|rc-.+?|@babel/runtime).+(js|jsx)$"
     ]
+  },
+  "devDependencies": {
+    "standard": "^16.0.1"
   }
 }

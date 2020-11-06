@@ -1,15 +1,15 @@
-import React from 'react';
-import 'antd/dist/antd.css';
+import React from 'react'
+import 'antd/dist/antd.css'
 import { Provider } from 'react-redux'
 import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { Affix, Typography, Layout, Card } from 'antd';
-import styled from 'styled-components';
-import TokenModal from './Tokens';
-import tokens from './Tokens/state';
+import { Affix, Typography, Layout, Card } from 'antd'
+import styled from 'styled-components'
+import TokenModal from './Tokens'
+import tokens from './Tokens/state'
 
-const { Header, Footer, Content } = Layout;
+const { Header, Footer, Content } = Layout
 
-const { Title } = Typography;
+const { Title } = Typography
 
 export const store = configureStore({
   reducer: combineReducers({ tokens })
@@ -38,7 +38,7 @@ const AppContent = styled(Content)`
   width: 100%;
 `
 
-function App() {
+function App () {
   return (
     <Provider store={store}>
       <AppWrapper>
@@ -50,7 +50,7 @@ function App() {
         </AppHeader>
         <AppContent>
           {new Array(10).fill('').map((value, index) => (
-            <Card key={index} title="Card title" bordered={false} style={{ width: 300 }}>
+            <Card key={index} title='Card title' bordered={false} style={{ width: 300 }}>
               <p>Card content</p>
               <p>Card content</p>
               <p>Card content</p>
@@ -61,7 +61,7 @@ function App() {
         <TokenModal />
       </AppWrapper>
     </Provider>
-  );
+  )
 }
 
-export default App;
+export default App
