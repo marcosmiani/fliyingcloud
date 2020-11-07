@@ -1,8 +1,9 @@
 import { Form, Input, Button, InputNumber } from 'antd'
-// import { KeyOutlined } from '@ant-design/icons'
-import { useDispatch } from 'react-redux'
+import { SearchOutlined, LoadingOutlined } from '@ant-design/icons'
+import { useDispatch, useSelector } from 'react-redux'
 // import styled from 'styled-components'
 import { searchFlights } from './state'
+import SelectBox from './SelectBox'
 
 const layout = {
   labelCol: {
@@ -24,6 +25,7 @@ const tailLayout = {
 
 function Search () {
   const dispatch = useDispatch()
+  const searchLoading = useSelector(state => state.search.flights.loading)
 
   // const accuWeatherTokenState = useSelector(state => state.tokens.accuWeatherToken)
   // const tequilaKiwiTokenState = useSelector(state => state.tokens.tequilaKiwiToken)
@@ -50,14 +52,14 @@ function Search () {
         name='origin'
         rules={[{ required: true, message: 'Please input your origin!' }]}
       >
-        <Input placeholder='Amsterdam?' />
+        <SelectBox allowClear searchType='origins' placeholder='Amsterdam' />
       </Form.Item>
       <Form.Item
         label='Destinations'
         name='destinations'
         rules={[{ required: true, message: 'Please input your destinations!' }]}
       >
-        <Input placeholder='Madrid, Paris, London..' />
+        <SelectBox allowClear searchType='destinations' searchMode='multiple' placeholder='Madrid, Paris, London..' />
       </Form.Item>
       <Form.Item label='Passengers'>
         <Input.Group compact>
@@ -80,7 +82,12 @@ function Search () {
         </Input.Group>
       </Form.Item>
       <Form.Item {...tailLayout}>
-        <Button type='primary' htmlType='submit'>
+        <Button
+          type='primary'
+          htmlType='submit'
+          disabled={searchLoading}
+          icon={searchLoading ? <LoadingOutlined /> : <SearchOutlined />}
+        >
           Search
         </Button>
       </Form.Item>
