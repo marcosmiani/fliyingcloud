@@ -5,13 +5,14 @@ import { configureStore, combineReducers } from '@reduxjs/toolkit'
 import { Layout, Card } from 'antd'
 import styled from 'styled-components'
 import TokenModal from './Tokens'
-import SearchBox from './Searchbox'
+import Search from './Search'
 import tokens from './Tokens/state'
+import search from './Search/state'
 
 const { Header, Footer, Content } = Layout
 
 export const store = configureStore({
-  reducer: combineReducers({ tokens })
+  reducer: combineReducers({ tokens, search })
 })
 
 const AppWrapper = styled.div`
@@ -43,7 +44,7 @@ function App () {
     <Provider store={store}>
       <AppWrapper>
         <AppHeader>
-          <SearchBox />
+          <Search />
         </AppHeader>
         <AppContent>
           {new Array(4).fill('').map((value, index) => (

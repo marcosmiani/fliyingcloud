@@ -3,9 +3,9 @@ import { render, screen } from '@testing-library/react'
 import App from './App'
 
 describe('REALLY BASIC TESTS', () => {
-  test('renders learn react link', () => {
+  test('renders basic search form', () => {
     render(<App />)
-    const linkElement = screen.getByText(/Welcome to the fliying cloud/i)
+    const linkElement = screen.getByText(/origin/i)
     expect(linkElement).toBeInTheDocument()
   })
 })

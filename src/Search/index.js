@@ -1,10 +1,8 @@
-import { Form, Input, Button, Affix, DatePicker, InputNumber } from 'antd'
-import moment from 'moment'
-const { RangePicker } = DatePicker
+import { Form, Input, Button, InputNumber } from 'antd'
 // import { KeyOutlined } from '@ant-design/icons'
-// import { useDispatch, useSelector } from 'react-redux'
+import { useDispatch } from 'react-redux'
 // import styled from 'styled-components'
-// import { searchFlights } from './state'
+import { searchFlights } from './state'
 
 const layout = {
   labelCol: {
@@ -24,14 +22,15 @@ const tailLayout = {
   }
 }
 
-function Searchbox () {
-  // const dispatch = useDispatch()
+function Search () {
+  const dispatch = useDispatch()
 
   // const accuWeatherTokenState = useSelector(state => state.tokens.accuWeatherToken)
   // const tequilaKiwiTokenState = useSelector(state => state.tokens.tequilaKiwiToken)
 
   const onFinish = values => {
     console.info(values)
+    dispatch(searchFlights(values))
   }
 
   const onFinishFailed = errorInfo => {
@@ -53,21 +52,12 @@ function Searchbox () {
       >
         <Input placeholder='Amsterdam?' />
       </Form.Item>
-      <Affix>
-        <Form.Item
-          label='Destinations'
-          name='destinations'
-          rules={[{ required: true, message: 'Please input your destinations!' }]}
-        >
-          <Input placeholder='Madrid, Paris, London..' />
-        </Form.Item>
-      </Affix>
       <Form.Item
-        label='Dates'
-        name='dates'
-        rules={[{ required: true, message: 'Please input your dates!' }]}
+        label='Destinations'
+        name='destinations'
+        rules={[{ required: true, message: 'Please input your destinations!' }]}
       >
-        <RangePicker disabledDate={date => date.isBefore(moment())} />
+        <Input placeholder='Madrid, Paris, London..' />
       </Form.Item>
       <Form.Item label='Passengers'>
         <Input.Group compact>
@@ -80,7 +70,7 @@ function Searchbox () {
             />
           </Form.Item>
           <Form.Item
-            name='kids'
+            name='children'
             rules={[{ min: 0, max: 5, type: 'number' }]}
           >
             <InputNumber
@@ -98,4 +88,4 @@ function Searchbox () {
   )
 }
 
-export default Searchbox
+export default Search
