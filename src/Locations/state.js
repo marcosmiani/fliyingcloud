@@ -19,13 +19,14 @@ export const searchLocationsFlights = (params) => (dispatch, getState, reducerMa
 
   const searchers = destinations.map(destination => {
     const [code, location] = destination.value.split('/')
-    console.info(code, location)
+
     const searchFlight = createSearchFlights({
       from: originCode,
       to: code,
       adults,
       children
     })
+
     const searchWeather = createSearchWeather({
       code,
       location

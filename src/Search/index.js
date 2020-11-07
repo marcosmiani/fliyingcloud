@@ -32,7 +32,6 @@ function Search () {
   })
 
   const onFinish = values => {
-    console.info(values)
     dispatch(searchLocationsFlights(values))
   }
 
