@@ -1,6 +1,7 @@
 import { Form, Input, Button, InputNumber } from 'antd'
 import { SearchOutlined, LoadingOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
+import get from 'lodash/get'
 // import styled from 'styled-components'
 import { searchLocationsFlights } from '../Locations/state'
 import SelectBox from './SelectBox'
@@ -25,7 +26,10 @@ const tailLayout = {
 
 function Search () {
   const dispatch = useDispatch()
-  const searchLoading = useSelector(state => state.locations.list.loading)
+  const searchLoading = useSelector(state => {
+    const locations = get(state, 'locations', [])
+    return locations.some(location => get(state, `data.${location}.flights.loading`, false))
+  })
 
   const onFinish = values => {
     console.info(values)

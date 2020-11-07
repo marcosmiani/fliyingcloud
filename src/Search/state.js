@@ -6,7 +6,7 @@ import { checkStatus, parseJSON } from '../utils'
 // SEARCH LOCATION
 export const createSearchLocation = (id) => {
   const asyncThunk = createAsyncThunk(
-    `${id}/location/fetchByParams`,
+    `location/${id}/fetchByParams`,
     async ({ term = 'fra' }, thunkAPI) => {
       const { tokens: { /* accuWeatherToken, */ tequilaKiwiToken } } = thunkAPI.getState()
       const EN_LOCALE = 'en-US'

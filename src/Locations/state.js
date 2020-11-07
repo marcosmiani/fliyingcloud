@@ -6,7 +6,7 @@ import URI from 'urijs'
 import { checkStatus, parseJSON } from '../utils'
 
 // SEARCH
-export const createSearchFlights = ({ name = '', from = 'FRA', to = 'LON', adults = 1, children = 0 }) => {
+export const createSearchFlights = ({ from = 'FRA', to = 'LON', adults = 1, children = 0 }) => {
   const DAYS_TO_STAY = 5
   const STEPOVERS = 1
   const SECTOR_STEPOVERS = 0
@@ -21,7 +21,7 @@ export const createSearchFlights = ({ name = '', from = 'FRA', to = 'LON', adult
   const returnDate = moment().add(DAYS_TO_STAY, 'd').format('DD/MM/YYYY')
 
   const asyncThunk = createAsyncThunk(
-    'flight/fetchByParams',
+    `flight/${to}/fetchByParams`,
     async (_, thunkAPI) => {
       const { tokens: { /* accuWeatherToken, */ tequilaKiwiToken } } = thunkAPI.getState()
 
@@ -37,7 +37,8 @@ export const createSearchFlights = ({ name = '', from = 'FRA', to = 'LON', adult
             adults,
             children,
             flight_type: ROUND_FLIGHT_TYPE,
-            // partner_market: 'nl', // use origin country
+            // partner_market: 'nl', // should be smart on the future
+            // curr: EUR_CURRENCY,
             nights_in_dst_from: DAYS_TO_STAY - 1, // Maximum stay on the destination
             nights_in_dst_to: DAYS_TO_STAY - 1, // Maximum stay on the destination
             max_stopovers: STEPOVERS, // Reduce the number of steps until destination
@@ -65,7 +66,7 @@ export const createSearchFlights = ({ name = '', from = 'FRA', to = 'LON', adult
   return {
     asyncThunk,
     slice: createSlice({
-      name: 'flights',
+      name: `${to}_flights`,
       initialState: { items: [], loading: false, error: null },
       reducers: {
         // standard reducer logic, with auto-generated action types per reducer
@@ -95,11 +96,9 @@ export const createSearchFlights = ({ name = '', from = 'FRA', to = 'LON', adult
 
 const list = createSlice({
   name: 'locationsList',
-  initialState: { items: [], loading: false, error: null },
+  initialState: [],
   reducers: {
-    set: (state, { payload }) => {
-      state.items = payload
-    }
+    set: (state, { payload }) => payload
   }
 })
 
@@ -107,6 +106,7 @@ export const searchLocationsFlights = (params) => (dispatch, getState, reducerMa
   const { origin, destinations, adults, children } = params
   const [originCode] = origin.value.split('/')
   const searchReducers = {}
+  const locations = []
 
   const searchers = destinations.map(destination => {
     const [code, location] = destination.value.split('/')
@@ -119,6 +119,7 @@ export const searchLocationsFlights = (params) => (dispatch, getState, reducerMa
     })
 
     // use location to create a weather forecast query
+    locations.push(code)
 
     set(searchReducers, code, combineReducers({
       // add weather here when the reducer is ready!
@@ -132,6 +133,9 @@ export const searchLocationsFlights = (params) => (dispatch, getState, reducerMa
     }
   })
 
+  // Set locations
+  dispatch(list.actions.set(locations))
+
   reducerManager.add('data', combineReducers(searchReducers))
 
   searchers.forEach(searcher => {
@@ -140,6 +144,4 @@ export const searchLocationsFlights = (params) => (dispatch, getState, reducerMa
   })
 }
 
-export default combineReducers({
-  list: list.reducer
-})
+export default list.reducer

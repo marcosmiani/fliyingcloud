@@ -1,17 +1,22 @@
 import React from 'react'
 import { Select, Spin } from 'antd'
 import { CompassOutlined } from '@ant-design/icons'
+import styled from 'styled-components'
 import debounce from 'lodash/debounce'
 import { useDispatch, useSelector } from 'react-redux'
 import { searchLocation } from './state'
 const { Option } = Select
 
+const NotFoundWrapper = styled.div`
+  text-align: 'center';
+`
+
 function NotFound () {
   return (
-    <div style={{ textAlign: 'center' }}>
+    <NotFoundWrapper>
       <CompassOutlined style={{ fontSize: 20 }} />
       <p>Destination Not Found</p>
-    </div>
+    </NotFoundWrapper>
   )
 }
 
