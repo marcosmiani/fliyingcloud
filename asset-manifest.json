@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.js": "/fliyingcloud/static/js/main.1f59ebb2.chunk.js",
-    "main.js.map": "/fliyingcloud/static/js/main.1f59ebb2.chunk.js.map",
+    "main.js": "/fliyingcloud/static/js/main.8da42e8f.chunk.js",
+    "main.js.map": "/fliyingcloud/static/js/main.8da42e8f.chunk.js.map",
     "runtime-main.js": "/fliyingcloud/static/js/runtime-main.cb355272.js",
     "runtime-main.js.map": "/fliyingcloud/static/js/runtime-main.cb355272.js.map",
     "static/css/2.617c3bb8.chunk.css": "/fliyingcloud/static/css/2.617c3bb8.chunk.css",
@@ -17,6 +17,6 @@
     "static/js/runtime-main.cb355272.js",
     "static/css/2.617c3bb8.chunk.css",
     "static/js/2.0ad7992f.chunk.js",
-    "static/js/main.1f59ebb2.chunk.js"
+    "static/js/main.8da42e8f.chunk.js"
   ]
 }
