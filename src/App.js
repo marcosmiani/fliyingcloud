@@ -1,19 +1,16 @@
 import React from 'react'
 import 'antd/dist/antd.css'
 import { Provider } from 'react-redux'
-import { configureStore, combineReducers } from '@reduxjs/toolkit'
-import { Layout, Card } from 'antd'
+import { Layout } from 'antd'
 import styled from 'styled-components'
 import TokenModal from './Tokens'
 import Search from './Search'
-import tokens from './Tokens/state'
-import search from './Search/state'
+import Locations from './Locations'
+import { createStore } from './store'
 
 const { Header, Footer, Content } = Layout
 
-export const store = configureStore({
-  reducer: combineReducers({ tokens, search })
-})
+export const store = createStore()
 
 const AppWrapper = styled.div`
   min-height: 100vh;
@@ -34,9 +31,14 @@ const AppHeader = styled(Header)`
 `
 
 const AppContent = styled(Content)`
+  width: 100%;
+`
+
+const AppFooter = styled(Footer)`
   background-color: white;
   color: black;
   width: 100%;
+  margin-top: 20px;
 `
 
 function App () {
@@ -47,15 +49,9 @@ function App () {
           <Search />
         </AppHeader>
         <AppContent>
-          {new Array(4).fill('').map((value, index) => (
-            <Card key={index} title='Card title' bordered={false} style={{ width: 300 }}>
-              <p>Card content</p>
-              <p>Card content</p>
-              <p>Card content</p>
-            </Card>
-          ))}
+          <Locations />
         </AppContent>
-        <Footer>Footer</Footer>
+        <AppFooter>Special thanks to the Free API's dudes</AppFooter>
         <TokenModal />
       </AppWrapper>
     </Provider>

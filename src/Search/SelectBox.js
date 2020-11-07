@@ -45,7 +45,12 @@ function RemoteSelect (props) {
       {...restProps}
     >
       {searchResults.map(d => (
-        <Option key={d.code} value={d.code}>{d.name}</Option>
+        <Option
+          key={d.code}
+          value={`${d.code}/${d.location.lat},${d.location.lon}`}
+        >
+          {d.name} - {d.city.name}
+        </Option>
       ))}
     </Select>
   )

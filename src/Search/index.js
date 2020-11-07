@@ -2,7 +2,7 @@ import { Form, Input, Button, InputNumber } from 'antd'
 import { SearchOutlined, LoadingOutlined } from '@ant-design/icons'
 import { useDispatch, useSelector } from 'react-redux'
 // import styled from 'styled-components'
-import { searchFlights } from './state'
+import { searchLocationsFlights } from '../Locations/state'
 import SelectBox from './SelectBox'
 
 const layout = {
@@ -25,14 +25,11 @@ const tailLayout = {
 
 function Search () {
   const dispatch = useDispatch()
-  const searchLoading = useSelector(state => state.search.flights.loading)
-
-  // const accuWeatherTokenState = useSelector(state => state.tokens.accuWeatherToken)
-  // const tequilaKiwiTokenState = useSelector(state => state.tokens.tequilaKiwiToken)
+  const searchLoading = useSelector(state => state.locations.list.loading)
 
   const onFinish = values => {
     console.info(values)
-    dispatch(searchFlights(values))
+    dispatch(searchLocationsFlights(values))
   }
 
   const onFinishFailed = errorInfo => {
