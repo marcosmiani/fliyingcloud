@@ -12,7 +12,7 @@ export const createSearchWeather = ({ code, location }) => {
       const { tokens: { accuWeatherToken } } = thunkAPI.getState()
 
       return fetch( // Get city code
-        URI('http://dataservice.accuweather.com/locations/v1/cities/geoposition/search')
+        URI('https://dataservice.accuweather.com/locations/v1/cities/geoposition/search')
           .search({
             apikey: accuWeatherToken,
             q: location,
@@ -31,7 +31,7 @@ export const createSearchWeather = ({ code, location }) => {
         .then(parseJSON)
         .then(data => {
           return fetch( // Get forecast
-            URI(`http://dataservice.accuweather.com/forecasts/v1/daily/5day/${data.Key}`)
+            URI(`https://dataservice.accuweather.com/forecasts/v1/daily/5day/${data.Key}`)
               .search({
                 apikey: accuWeatherToken,
                 language: LANGUAGE_EN,
