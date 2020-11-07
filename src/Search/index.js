@@ -66,6 +66,7 @@ function Search () {
         <Input.Group compact>
           <Form.Item
             name='adults'
+            initialValue={1}
             rules={[{ required: true, min: 1, max: 5, type: 'number', message: 'Adults are required' }]}
           >
             <InputNumber

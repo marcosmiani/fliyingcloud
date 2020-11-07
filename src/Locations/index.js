@@ -1,11 +1,11 @@
 import React from 'react'
-import { Card, Row, Col, List, Button, Typography } from 'antd'
+import { Card, Row, Col, List, Button, Typography, Popover } from 'antd'
 import styled from 'styled-components'
 import { useSelector } from 'react-redux'
 import get from 'lodash/get'
-import { CompassOutlined, SelectOutlined } from '@ant-design/icons'
+import { CompassOutlined, SelectOutlined, QuestionCircleOutlined } from '@ant-design/icons'
 
-const { Title } = Typography
+const { Title, Text } = Typography
 
 const CardWrapper = styled(Col)`
   display: flex;
@@ -20,8 +20,13 @@ const StyledCard = styled(Card)`
   min-height: 350px;
   max-height: 350px;
 
+  .ant-card-head-title .ant-typography-secondary {
+    white-space: wrap;
+    font-size: 16px;
+  }
+
   .ant-card-body {
-    padding-left: 5px;
+    ${({ loading }) => !loading ? 'padding-left: 5px;' : ''}
     padding-right: 20px;
   }
 
@@ -68,10 +73,27 @@ function LocationCard ({ code }) {
   const loading = useSelector(state => get(state, `data.${code}.flights.loading`, []))
   const name = useSelector(state => get(state, `data.${code}.name`, []))
   const items = useSelector(state => get(state, `data.${code}.flights.items`, []))
+  const weatherCategory = useSelector(state => get(state, `data.${code}.weather.data.Category`, ''))
+  const weatherDescription = useSelector(state => get(state, `data.${code}.weather.data.Text`, ''))
 
   return (
     <StyledCard
-      title={name}
+      title={
+        <Typography>
+          <Title level={5}>{name}</Title>
+          <Text type='success'>
+            <Popover
+              overlayStyle={{ width: 200 }}
+              arrowPointAtCenter
+              placement='bottom'
+              title={weatherCategory}
+              content={weatherDescription}
+            >
+              Expected weather: {weatherCategory} <QuestionCircleOutlined />
+            </Popover>
+          </Text>
+        </Typography>
+      }
       bordered={false}
       loading={loading}
     >
