@@ -51,6 +51,7 @@ function Search () {
       <Form.Item
         label='Origin'
         name='origin'
+        data-testid='origin'
         rules={[{ required: true, message: 'Please input your origin!' }]}
       >
         <SelectBox allowClear searchType='origins' placeholder='Amsterdam' />
@@ -58,6 +59,7 @@ function Search () {
       <Form.Item
         label='Destinations'
         name='destinations'
+        data-testid='destinations'
         rules={[{ required: true, message: 'Please input your destinations!' }]}
       >
         <SelectBox allowClear searchType='destinations' searchMode='multiple' placeholder='Madrid, Paris, London..' />
@@ -67,6 +69,7 @@ function Search () {
           <Form.Item
             name='adults'
             initialValue={1}
+            data-testid='adults'
             rules={[{ required: true, min: 1, max: 5, type: 'number', message: 'Adults are required' }]}
           >
             <InputNumber
@@ -75,6 +78,7 @@ function Search () {
           </Form.Item>
           <Form.Item
             name='children'
+            data-testid='children'
             rules={[{ min: 0, max: 5, type: 'number' }]}
           >
             <InputNumber
@@ -85,6 +89,7 @@ function Search () {
       </Form.Item>
       <Form.Item {...tailLayout}>
         <Button
+          data-testid='submit-search'
           type='primary'
           htmlType='submit'
           disabled={searchLoading}

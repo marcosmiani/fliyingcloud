@@ -80,8 +80,8 @@ function LocationCard ({ code }) {
     <StyledCard
       title={
         <Typography>
-          <Title level={5}>{name}</Title>
-          <Text type='success'>
+          <Title level={5} ellipsis>{name}</Title>
+          <Text type='success' ellipsis>
             <Popover
               overlayStyle={{ width: 200 }}
               arrowPointAtCenter
