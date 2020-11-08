@@ -11,7 +11,7 @@ export const modal = createSlice({
 
 export const accuWeatherToken = createSlice({
   name: 'accuWeatherToken',
-  initialState: null,
+  initialState: 'OiXgWYU0cN3gBRcw1HSb4pgzh5uAENlv',
   reducers: {
     set: (state, { payload }) => payload || state
   }
@@ -19,7 +19,7 @@ export const accuWeatherToken = createSlice({
 
 export const tequilaKiwiToken = createSlice({
   name: 'tequilaKiwiToken',
-  initialState: null,
+  initialState: 'jJ6sf5YuzyW67WKlXviCPChvdfx9dX5z',
   reducers: {
     set: (state, { payload }) => payload || state
   }

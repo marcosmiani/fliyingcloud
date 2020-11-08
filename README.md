@@ -2,7 +2,12 @@
 
 Go to [the fliying cloud page](http://marcosmiani.github.io/fliyingcloud)
 
-- Click the key (lower right corner)
+- Turn on mobile or small screen (it looks better there)
+
+## Troubleshooting
+If for some reason the API is not returning results it could be due to the quota available:
+
+- Click the key button (lower right corner)
 
 - Set up the API keys:
     ```
@@ -13,7 +18,7 @@ Go to [the fliying cloud page](http://marcosmiani.github.io/fliyingcloud)
 
 ## A brief explanation about the keys
 
-_Im sure you are wondering why I didnt put the keys there.. well like all devs im worried about the mis-use of the keys if they are directly embebed into the app (web crawlers and other stuff). On the other side, I would like people to try it out, so if you are reading this here are the keys to enjoy the app. Both are free, so the only issue would be filling the quota and having to wait to use the app or.. making your own tokens._
+_Im sure you are wondering why I didnt put the keys there.. well like all devs im worried about the mis-use of the keys if they are directly embebed into the app (web crawlers and other stuff). On the other side, I would like people to try it out, so if you are reading this.. here are the keys to enjoy the app. Both are free tier, so the only issue would be filling the quota and having to wait to use the app or.. making your own tokens._
 
 ## Case
 
@@ -30,6 +35,7 @@ Lets you choosing your starting point and your desired destinations, how many pe
 - More linting and types (again, specially on the state)
 - Rethink what the user wants to see about the weather when he travels (MORE ICONS)
 - Explain more which dates are selected and why, (5 days because is the free and available.. for now)
+- Let the user move the dates a bit
 - Create a presentation page, a _Hello and Welcome_ message
 - Search by weather? Some people like snow, other sun, others.. rain or wind (surfing anybody?)
 

@@ -39,6 +39,7 @@ const AppFooter = styled(Footer)`
   color: black;
   width: 100%;
   margin-top: 20px;
+  text-align: center;
 `
 
 function App () {
