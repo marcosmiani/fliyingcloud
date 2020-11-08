@@ -1,6 +1,37 @@
-# Getting Started with Create React App
+# Getting Started with Flying cloud
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Go to [the fliying cloud page](http://marcosmiani.github.io/fliyingcloud)
+
+- Click the key (lower right corner)
+
+- Set up the API keys:
+    ```
+    accuWeather: OiXgWYU0cN3gBRcw1HSb4pgzh5uAENlv
+    tequilaKiwi: jJ6sf5YuzyW67WKlXviCPChvdfx9dX5z
+    ```
+ - Enjoy
+
+## A brief explanation about the keys
+
+_Im sure you are wondering why I didnt put the keys there.. well like all devs im worried about the mis-use of the keys if they are directly embebed into the app (web crawlers and other stuff). On the other side, I would like people to try it out, so if you are reading this here are the keys to enjoy the app. Both are free, so the only issue would be filling the quota and having to wait to use the app or.. making your own tokens._
+
+## Case
+
+Someone has a few days of holidays left, wants to travel to a familiar yet more confortable place, as cheap an as sunny as possible.
+
+*The app solves this:*
+Lets you choosing your starting point and your desired destinations, how many people its going to travel AND shows you trips with prices and estimated weather to those places. As cheap as the API can return for the current trips avaiable on a 5 day round holiday.
+
+## Things I would improve given time
+
+- More tests, both components and, specially, the state
+- Hide the tokens on the API side or under authentication required
+- A proper design way beyond the default components and colors, they always take time but they are worth it
+- More linting and types (again, specially on the state)
+- Rethink what the user wants to see about the weather when he travels (MORE ICONS)
+- Explain more which dates are selected and why, (5 days because is the free and available.. for now)
+- Create a presentation page, a _Hello and Welcome_ message
+- Search by weather? Some people like snow, other sun, others.. rain or wind (surfing anybody?)
 
 ## Available Scripts
 
@@ -29,42 +60,4 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
-### `yarn eject`
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
